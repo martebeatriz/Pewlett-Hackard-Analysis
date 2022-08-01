@@ -41,5 +41,20 @@ ORDER BY e.emp_no;
 
 ---
 
+-- MAKE MENTORSHIP COUNT 
+SELECT COUNT (title), title
+INTO mentor_titles
+FROM mentorship_eligibilty
+GROUP BY title
+ORDER BY Count DESC;
+
+--MAKE JOIN TABLE
+SELECT rt.title as retiring, rt.count as retiring_count, mt.title as mentor, mt.count as mentor_count
+INTO retiring_v_mentors
+FROM retiring_titles AS rt
+INNER JOIN mentor_titles AS mt
+ON rt.title = mt.title
+ORDER BY rt.title;
+
 
 
